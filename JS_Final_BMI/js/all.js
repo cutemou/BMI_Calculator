@@ -2,18 +2,14 @@
 var UserArray = JSON.parse(localStorage.getItem('userArray')) || [];
 var today = new Date();
 
-//抓今天時間
-let year = today.getFullYear();
-let month = today.getMonth()+1;
-let day = today.getDate();
-let todayStr = (year +'-' + month +'-' + day);
+
 
 //當看結果被點擊
 let calculate = document.querySelector('.calculate');
 calculate.addEventListener('click', BMI, false);
 
 //初始化
-UpdatePage(UserArray);  
+UpdatePage(UserArray);
 
 //刪除localStorage
 // localStorage.removeItem('userArray');
@@ -23,11 +19,11 @@ function BMI() {
     deleteData();
     let height = (document.querySelector('.height').value);
     let weight = document.querySelector('.weight').value;
-    let heightM = height/100;
+    let heightM = height / 100;
     let BMI = weight / (heightM * heightM);
     BMI = BMI.toFixed(2);
-    let status = BMIStatus(BMI);    
-    saveData(status,BMI,height,weight);
+    let status = BMIStatus(BMI);
+    saveData(status, BMI, height, weight);
     UpdatePage(UserArray);
 }
 
@@ -56,31 +52,38 @@ function BMIStatus(BMI) {
 }
 
 //存取資料到localStorage
-function saveData(status,BMI,height,weight){
+function saveData(status, BMI, height, weight) {
+    //抓今天時間
+    let year = today.getFullYear();
+    let month = today.getMonth() + 1;
+    let day = today.getDate();
+    let todayStr = (year + '-' + month + '-' + day);
     let BMIObj = {
-        "status" : status,
-        "BMI"    : BMI,
-        "height" : height,
-        "weight" : weight
+        "status": status,
+        "BMI": BMI,
+        "height": height,
+        "weight": weight,
+        "today":todayStr
     }
     UserArray.push(BMIObj);
 
-    localStorage.setItem('userArray',JSON.stringify(UserArray));
+    localStorage.setItem('userArray', JSON.stringify(UserArray));
 }
 
 //更新資料到html
-function UpdatePage(array){
+function UpdatePage(array) {
     let BMITable = document.querySelector('.BMITable');
     //從localStorage抓資料
-    let tmpArray = JSON.parse(localStorage.getItem('userArray'));    
+    let tmpArray = JSON.parse(localStorage.getItem('userArray'));
     //產生html
-    for(let i=0;i<tmpArray.length;i++){
+    for (let i = 0; i < tmpArray.length; i++) {
         let BMIStatus = tmpArray[i].status;
         let BMI = tmpArray[i].BMI;
         let height = tmpArray[i].height;
-        let weight = tmpArray[i].weight;        
+        let weight = tmpArray[i].weight;
+        let todayStr = tmpArray[i].today;
         BMITable.innerHTML +=
-        `
+            `
         <div class="BMIInfo BMIInfo${i}">                    
             <div class="BMIStatus">
                 <div class="statusColor statusColor${i}"></div>
@@ -102,40 +105,40 @@ function UpdatePage(array){
             </div>
             <div class="Date">${todayStr}</div>
         </div>
-        `;        
+        `;
         //改變BMI狀態顏色
-        let tmpstatusColor = '.statusColor'+i;
-        let statusColor =document.querySelector(tmpstatusColor);
-        switch(BMIStatus){
-            case '重度肥胖' :
-                statusColor.style.background = '#FF1200';   
+        let tmpstatusColor = '.statusColor' + i;
+        let statusColor = document.querySelector(tmpstatusColor);
+        switch (BMIStatus) {
+            case '重度肥胖':
+                statusColor.style.background = '#FF1200';
                 statusColor.style['box-shadow'] = '2px 0 3px 0 rgba(255,18,0,0.29)';
-            break;
-            case '中度肥胖' :   
+                break;
+            case '中度肥胖':
                 statusColor.style.background = '#FF6C03';
                 statusColor.style['box-shadow'] = '2px 0 3px 0 rgba(255,108,3,0.29)';
-            break;
-            case '輕度肥胖' :
+                break;
+            case '輕度肥胖':
                 statusColor.style.background = 'pink';
                 statusColor.style['box-shadow'] = '2px 0 3px 0 rgba(255,108,3,0.29)';
-            break;
-            case '理想' :
+                break;
+            case '理想':
                 statusColor.style.background = '#86D73F';
                 statusColor.style['box-shadow'] = '2px 0 3px 0 rgba(134,215,63,0.29)';
-            break;
-            case '體重過輕' :
+                break;
+            case '體重過輕':
                 statusColor.style.background = '#31BAF9';
                 statusColor.style['box-shadow'] = '2px 0 3px 0 rgba(49,186,249,0.29)';
-            break;
+                break;
         }
-    }   
+    }
 }
 
 //刪除資料準備新增
-function deleteData(){
-    for (let i = 0; i < UserArray.length; i++) {        
+function deleteData() {
+    for (let i = 0; i < UserArray.length; i++) {
         let BMITable = document.querySelector('.BMITable');
-        let tmp = ".BMIInfo" +i;
+        let tmp = ".BMIInfo" + i;
         let BMIInfo = document.querySelector(tmp);
         BMITable.removeChild(BMIInfo);
     }
