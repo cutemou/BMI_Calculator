@@ -1,0 +1,221 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.header {
+  background-color: #424242;
+  min-height: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header .BMIgroup {
+  min-width: 800px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.header .BMIgroup .BMIIcon {
+  text-align: center;
+  font-size: 48px;
+  color: white;
+  line-height: 70px;
+}
+
+.header .BMIgroup .inputgroup div {
+  font-size: 24px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.header .BMIgroup .inputgroup input {
+  background: rgba(255, 255, 255, 0.18);
+  border: 2px solid #ffd366;
+  border-radius: 10px;
+  min-height: 30px;
+  min-width: 300px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.header .BMIgroup .inputgroup input:focus-visible {
+  outline: none;
+}
+
+.header .BMIgroup .inputgroup input::-webkit-input-placeholder {
+  padding-left: 10px;
+  color: rgba(255, 255, 255, 0.18);
+}
+
+.header .BMIgroup .inputgroup input:-ms-input-placeholder {
+  padding-left: 10px;
+  color: rgba(255, 255, 255, 0.18);
+}
+
+.header .BMIgroup .inputgroup input::-ms-input-placeholder {
+  padding-left: 10px;
+  color: rgba(255, 255, 255, 0.18);
+}
+
+.header .BMIgroup .inputgroup input::placeholder {
+  padding-left: 10px;
+  color: rgba(255, 255, 255, 0.18);
+}
+
+.header .BMIgroup .calculate {
+  margin: auto 0;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 0 white;
+  background-color: white;
+  font-size: 24px;
+}
+
+.header .BMIgroup .calculate:hover {
+  background: rgba(255, 255, 255, 0.18);
+  color: white;
+}
+
+.content {
+  background-color: #f5f5f5;
+  min-height: 100%;
+  padding: 50px 0;
+}
+
+.content .BMIContent {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.content .BMIContent h1 {
+  text-align: center;
+  font-size: 36px;
+}
+
+.content .BMIContent .BMITable {
+  padding-top: 20px;
+}
+
+.content .BMIContent .BMITable .BMIInfo {
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.content .BMIContent .BMITable .BMIInfo .BMIStatus {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 24px;
+  line-height: 50px;
+  max-height: 50px;
+  min-width: 106px;
+}
+
+.content .BMIContent .BMITable .BMIInfo .BMIStatus .statusColor {
+  min-height: 50px;
+  width: 8px;
+  margin-right: 5px;
+}
+
+.content .BMIContent .BMITable .BMIInfo .BMIData {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  min-width: 500px;
+  line-height: 50px;
+  max-height: 50px;
+}
+
+.content .BMIContent .BMITable .BMIInfo .BMIData div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.content .BMIContent .BMITable .BMIInfo .BMIData div .litteTitle {
+  margin-right: 10px;
+}
+
+.content .BMIContent .BMITable .BMIInfo .BMIData div h2 {
+  font-size: 24px;
+  line-height: 50px;
+  max-height: 50px;
+  min-width: 66px;
+}
+
+.content .BMIContent .BMITable .BMIInfo .Date {
+  line-height: 50px;
+  max-height: 50px;
+  margin-right: 20px;
+}
+/*# sourceMappingURL=all.css.map */

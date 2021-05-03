@@ -1,0 +1,116 @@
+.header {
+    background-color: #424242;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    .BMIgroup {
+        min-width: 800px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        .BMIIcon {
+            text-align: center;
+            font-size: 48px;
+            color: white;
+            line-height: 70px;
+        }
+        .inputgroup {
+            div{
+                font-size: 24px;
+                color: white;
+                margin-bottom: 10px;
+            }
+            input{
+                background: rgba(255, 255, 255, 0.18);
+                border: 2px solid #ffd366;
+                border-radius: 10px;
+                min-height: 30px;
+                min-width: 300px;
+                margin-bottom: 10px;
+                font-size: 20px;
+            }   
+            input:focus-visible{
+                outline: none;
+            } 
+            input::placeholder{
+                padding-left: 10px;
+                color:rgba(255, 255, 255, 0.18);
+            }
+        }
+        .calculate{
+            margin: auto 0;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 0 white;
+            background-color: white;
+            font-size: 24px;
+        }
+        .calculate:hover{
+            background: rgba(255, 255, 255, 0.18);
+            color: white;
+        }
+    }
+
+}
+
+.content {
+    background-color: #f5f5f5;
+    min-height: 100%;
+    padding: 50px 0;
+    .BMIContent {
+        max-width: 960px;
+        margin: 0 auto;
+        h1 {
+            text-align: center;
+            font-size: 36px;
+        }
+        .BMITable {
+            padding-top: 20px;
+            .BMIInfo {
+                background-color: white;
+                display: flex;
+                justify-content: space-between;
+                max-width: 800px;
+                margin: 0 auto;
+                margin-top: 20px;
+                .BMIStatus {
+                    display: flex;
+                    font-size: 24px;
+                    line-height: 50px;
+                    max-height: 50px;
+                    min-width: 106px;
+                    .statusColor {
+                        min-height: 50px;
+                        width: 8px;
+                        margin-right: 5px;
+                    }
+                }
+                .BMIData {
+                    display: flex;
+                    justify-content: space-around;
+                    min-width: 500px;
+                    line-height: 50px;
+                    max-height: 50px;
+                    div {
+                        display: flex;
+                        .litteTitle {
+                            margin-right: 10px;
+                        }
+                        h2 {
+                            font-size: 24px;
+                            line-height: 50px;
+                            max-height: 50px;
+                            min-width: 66px;
+                        }
+                    }
+                }
+                .Date {
+                    line-height: 50px;
+                    max-height: 50px;
+                    margin-right: 20px;
+                }
+            }
+        }
+    }
+}
